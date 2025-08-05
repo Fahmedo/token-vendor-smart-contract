@@ -42,13 +42,13 @@ contract Vendor is Ownable {
 
     // ToDo: create a withdraw() function that lets the owner withdraw ETH
 
-   function withdraw() public onlyOwner {
-    uint256 contractBalance = address(this).balance;
-    require(contractBalance > 0, "Vendor has no ETH");
+  function withdraw() public onlyOwner {
+    // uint256 contractBalance = address(this).balance;
+    // require(contractBalance > 0, "Vendor has no ETH");
 
-    (bool success, ) = msg.sender.call{value: contractBalance}("");
-    require(success, "Withdraw failed");
-     emit Withdraw(msg.sender, contractBalance);
+    // (bool success, ) = msg.sender.call{value: contractBalance}("");
+    // require(success, "Withdraw failed");
+    //  emit Withdraw(msg.sender, contractBalance);
     // Validate the vendor has ETH to withdraw
     uint256 vendorBalance = address(this).balance;
     require(vendorBalance > 0, "Vendor does not have any ETH to withdraw");
@@ -83,8 +83,5 @@ contract Vendor is Ownable {
 
     // Emit sell event
     emit SellTokens(user, amountOfEth, amount);
-  }
-
-
-    
+  }   
 }
