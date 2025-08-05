@@ -21,9 +21,6 @@ contract Vendor is Ownable {
 
     // ToDo: create a payable buyTokens() function:
     function buyTokens() public payable {
-        // uint256 tokenAmount = tokensPerEth * msg.value;
-        // yourToken.transfer( msg.sender,tokenAmount  );
-        // emit BuyTokens(msg.sender, msg.value, tokenAmount);
         // Validate the user sent eth
     uint256 amountOfEth = msg.value;
     require(amountOfEth > 0, "Send some ETH to buy tokens");
@@ -43,34 +40,15 @@ contract Vendor is Ownable {
         
     }
 
-//     function buyTokens() public payable {
-//     // Validate the user sent eth
-//     uint256 amountOfEth = msg.value;
-//     require(amountOfEth > 0, "Send some ETH to buy tokens");
-
-//     // Validate the vendor has enough tokens
-//     uint256 amountOfTokens = amountOfEth * tokensPerEth;
-//     uint256 vendorBalance = yourToken.balanceOf(address(this));
-//     require(vendorBalance >= amountOfTokens, "Vendor does not have enough tokens");
-
-//     // Send the tokens
-//     address buyer = msg.sender;
-//     (bool sent) = yourToken.transfer(buyer, amountOfTokens);
-//     require(sent, "Failed to transfer token");
-
-//     // Emit buy event
-//     emit BuyTokens(buyer, amountOfEth, amountOfTokens);
-//   }
-
     // ToDo: create a withdraw() function that lets the owner withdraw ETH
 
    function withdraw() public onlyOwner {
-    // uint256 contractBalance = address(this).balance;
-    // require(contractBalance > 0, "Vendor has no ETH");
+    uint256 contractBalance = address(this).balance;
+    require(contractBalance > 0, "Vendor has no ETH");
 
-    // (bool success, ) = msg.sender.call{value: contractBalance}("");
-    // require(success, "Withdraw failed");
-    //  emit Withdraw(msg.sender, contractBalance);
+    (bool success, ) = msg.sender.call{value: contractBalance}("");
+    require(success, "Withdraw failed");
+     emit Withdraw(msg.sender, contractBalance);
     // Validate the vendor has ETH to withdraw
     uint256 vendorBalance = address(this).balance;
     require(vendorBalance > 0, "Vendor does not have any ETH to withdraw");
