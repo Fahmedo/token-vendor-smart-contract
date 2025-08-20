@@ -16,8 +16,8 @@ const Home: NextPage = () => {
         <div className="px-5">
           <h1 className="text-center">
             <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
-            <span className="block text-xl font-bold">(SpeedRunEthereum Challenge: Token Vendor extension)</span>
+            <span className="block text-4xl font-bold">TOKEN VENDOR</span>
+            <span className="block text-xl font-bold">(By Team Gold)</span>
           </h1>
           <div className="flex justify-center items-center space-x-2 flex-col">
             <p className="my-2 font-medium">Connected Address:</p>
@@ -26,10 +26,6 @@ const Home: NextPage = () => {
 
           <div className="flex items-center flex-col flex-grow pt-10">
             <div className="px-5">
-              <h1 className="text-center mb-6">
-                <span className="block text-2xl mb-2">SpeedRunEthereum</span>
-                <span className="block text-4xl font-bold">Challenge: 🏵 Token Vendor 🤖</span>
-              </h1>
               <div className="flex flex-col items-center justify-center">
                 <Image
                   src="/hero.png"
